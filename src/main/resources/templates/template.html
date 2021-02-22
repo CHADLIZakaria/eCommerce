@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Layout page</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/style.css}"/>
+<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</head>
+
+<body>
+
+	<!-- 	Start Navbar  -->
+
+
+	<div class="upper-navbar">
+		<div class="container">
+			<div class="dropdown user-info">
+				<button class="btn btn-secondary dropdown-toggle  mt-2 mb-2" type="button"
+					id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">[Username]</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" href="#">My Profil</a> <a
+						class="dropdown-item" href="#">New Items</a> 
+						<a
+						class="dropdown-item" href="#">My Items</a> 
+						<a
+						class="dropdown-item" href="#">Logout</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			<a class="navbar-brand" th:href="@{/}">Home</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+
+					<li class="nav-item"><a class="nav-link" href="#">Categories</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/products/list}">Items</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Members</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Comment</a></li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+
+
+
+
+
+	<section layout:fragment="content"></section>
+
+</body>
+</html>

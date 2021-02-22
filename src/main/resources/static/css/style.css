@@ -1,0 +1,8 @@
+.upper-navbar {
+	background-color: #EEE
+}
+
+.upper-navbar .user-info{
+	display: flex;
+	justify-content: flex-end; 
+} 
