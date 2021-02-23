@@ -2,12 +2,14 @@
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8" />
-<title>Layout page</title>
-<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
-<link rel="stylesheet" th:href="@{/css/style.css}"/>
-<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
-<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	<meta charset="UTF-8" />
+	<title>Layout page</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+	<link rel="stylesheet" th:href="@{/css/all.min.css}" />
+	<link rel="stylesheet" th:href="@{/css/style.css}"/>
+	<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{/js/all.min.js}"></script>
 </head>
 
 <body>
@@ -48,7 +50,8 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-
+				<li class="nav-item"><a class="nav-link" th:href="@{/dashboard}">Dashboard</a></li>
+					
 					<li class="nav-item"><a class="nav-link" href="#">Categories</a></li>
 					<li class="nav-item"><a class="nav-link"
 						th:href="@{/products/list}">Items</a></li>
