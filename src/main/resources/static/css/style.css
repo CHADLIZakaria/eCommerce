@@ -1,13 +1,57 @@
 .r-0 {
-	right: 0
+  right: 0;
 }
-
 
 .upper-navbar {
-	background-color: #EEE
+  background-color: #eee;
 }
 
-.upper-navbar .user-info{
-	display: flex;
-	justify-content: flex-end; 
-} 
+.upper-navbar .user-info {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.content {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.upper-nav {
+  padding: 10px;
+  background-color: #333a40;
+}
+
+.upper-nav .open-menu {
+  cursor: pointer;
+}
+.upper-nav .close-menu {
+  display: none;
+  cursor: pointer;
+}
+
+.upper-nav ul li a span {
+  display: none;
+}
+
+.page {
+  flex: 1;
+}
+
+.dashboard .stats:first-child a {
+  background-color: #6c757d;
+}
+
+.dashboard .stats:nth-child(2) a {
+  background-color: #117a8b;
+}
+
+.dashboard .stats:nth-child(3) a {
+  background-color: #e29f9f;
+}
+.dashboard .stats:last-child a {
+  background-color: #82719e;
+}
+table img {
+  width: 100px;
+  height: 100px;
+}

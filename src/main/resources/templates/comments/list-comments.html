@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="" layout:decorate="~{template.html}">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<div layout:fragment="content">
+		<div class="container">
+			<h2 class="text-center my-4">Manage comments</h2>
+			<form class="position-relative form-inline" method="GET" th:action="@{/comments/list}">
+				<div class="form-group">
+					<input type="text" class="form-control" name="keyword" th:value="${keyword}">
+					<button class="btn btn-info ml-2" type="submit" value="search">
+						Search <i class="fas fa-search"></i>
+					</button>
+					<div class="position-absolute r-0">
+						Show <select>
+							<option value="3">3</option>
+							<option value="5">5</option>
+							<option value="10">10</option>
+						</select> entries
+					</div>
+				</div>
+			</form>
+			<th:block th:if="${comments.size}==0">
+				<div class="mt-2 alert alert-danger">No comments founds</div>
+			</th:block>
+			<th:block th:if="${comments.size}!=0">
+
+				<table class="table table-bordered mt-2">
+					<thead class="thead-dark">
+						<tr>
+							<th>#ID</th>
+							<th>Comment</th>
+							<th>Controll</th>
+						</tr>
+					</thead>
+					<tr th:each="comment: ${comments}">
+						<td th:text="${comment.id}"></td>
+						<td th:text="${comment.comment}"></td>
+						<td>
+							<a class="btn btn-primary" th:href="@{/comments/editComment(idComment=${comment.id})}">Edit
+								<i class="fas fa-edit"></i></a>
+							<a class="btn btn-danger" th:href="@{/comments/deleteComment}">Delete <i
+									class="far fa-trash-alt"></i></a>
+						</td>
+					</tr>
+				</table>
+			</th:block>
+			<ul class="pagination justify-content-center">
+				<li class="page-item" th:each="page: ${pages}"><a class="page-link"
+						th:href="@{/comments/list(keyword=${keyword}, page=${page}, size=${size})}"
+						th:text="${page}"></a></li>
+
+			</ul>
+		</div>
+	</div>
+
+</body>
+
+</html>

@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	xmlns:th="http://www.thymeleaf.org">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
+
 <head>
 	<meta charset="UTF-8" />
 	<title>Layout page</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+	<link rel="stylesheet" th:href="@{/css/solid.min.css}" />
+	<link rel="stylesheet" th:href="@{/css/brands.min.css}" />
 	<link rel="stylesheet" th:href="@{/css/all.min.css}" />
-	<link rel="stylesheet" th:href="@{/css/style.css}"/>
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
 	<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
 	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{/js/brands.min.js}"></script>
+	<script th:src="@{/js/solid.min.js}"></script>
 	<script th:src="@{/js/all.min.js}"></script>
+
 </head>
 
 <body>
 
 	<!-- 	Start Navbar  -->
 
-
 	<div class="upper-navbar">
 		<div class="container">
 			<div class="dropdown user-info">
-				<button class="btn btn-secondary dropdown-toggle  mt-2 mb-2" type="button"
-					id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false">[Username]</button>
+				<button class="btn btn-secondary dropdown-toggle  mt-2 mb-2" type="button" id="dropdownMenuButton"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">[Username]</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					<a class="dropdown-item" href="#">My Profil</a> <a
-						class="dropdown-item" href="#">New Items</a> 
-						<a
-						class="dropdown-item" href="#">My Items</a> 
-						<a
-						class="dropdown-item" href="#">Logout</a>
+					<a class="dropdown-item" href="#">My Profil</a> <a class="dropdown-item" href="#">New Items</a> <a
+						class="dropdown-item" href="#">My Items</a> <a class="dropdown-item" href="#">Logout</a>
 				</div>
 			</div>
 
@@ -41,35 +41,53 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container">
 			<a class="navbar-brand" th:href="@{/}">Home</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" th:href="@{/dashboard}">Dashboard</a></li>
-					
-					<li class="nav-item"><a class="nav-link" href="#">Categories</a></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/products/list}">Items</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Members</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Comment</a></li>
+					<li class="nav-item" th:each="category: ${categories}"><a th:text="${category.category}"
+							class="nav-link" th:href="@{/category(id=${category.id})}"></a></li>
+
 
 				</ul>
 			</div>
 		</div>
 	</nav>
 
+	<div class="content">
+		<div class="upper-nav">
+			<ul class="navbar-nav">
+				<li class="text-center">
+					<span class="text-center open-menu">
+						<i class="fas fa-bars text-white"></i>
+					</span>
+					<span class="close-menu justify-content-end">
+						<i class="fas fa-times fa-2x text-danger"></i>
+					</span>
+				</li>
+				<li class="nav-item"><a class="nav-link text-white" th:href="@{/dashboard}"><i
+							class="fas fa-chart-line"></i>
+						<span>Dashboard</span></a></li>
+				<li class="nav-item"><a class="nav-link text-white" href="#"><i class="fas fa-tags"></i>
+						<span>Categories</span></a></li>
+				<li class="nav-item"><a class="nav-link text-white" th:href="@{/products/list}"><i
+							class="fas fa-boxes"></i>
+						<span>Items</span></a></li>
+				<li class="nav-item"><a class="nav-link text-white" th:href="@{/users/list}"><i
+							class="fas fa-users"></i>
+						<span>Members</span></a></li>
+				<li class="nav-item"><a class="nav-link text-white" th:href="@{/comments/list}"><i
+							class="fas fa-comments"></i>
+						<span>Comments</span></a></li>
+			</ul>
+		</div>
+		<section class="page" layout:fragment="content"></section>
+	</div>
 
-
-
-
-
-
-	<section layout:fragment="content"></section>
-
+	<script th:src="@{/js/plugin.js}"></script>
 </body>
+
 </html>
