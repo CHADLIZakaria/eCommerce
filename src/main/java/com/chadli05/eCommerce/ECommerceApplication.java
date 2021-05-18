@@ -40,7 +40,7 @@ public class ECommerceApplication implements CommandLineRunner {
 		for (Long i = 1L; i < 6; i++) {
 			List<Product> products = new ArrayList<>();
 			productDao.save(new Product(0L, "product " + (i), "product " + (i), "",
-					new User(0L, "user " + (i), "firstName " + (i + 1), "lastName " + (i), "email " + (i), products),
+					new User(0L, "user " + (i), "firstName " + (i + 1), "lastName " + (i),"password", "email " + (i), products),
 					new Category("category" + i)));
 		}
 		// for(int i=0; i<20; i++) {

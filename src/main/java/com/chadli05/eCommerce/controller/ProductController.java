@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Optional;
 
 import com.chadli05.eCommerce.dao.CategoryDao;
 import com.chadli05.eCommerce.dao.ProductDao;
@@ -70,11 +71,27 @@ public class ProductController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 		product.setUser(new User());
 		product.setCategory(new Category());
 		product.setPhoto(file.getOriginalFilename());
 		productDao.save(product);
 		return "redirect:/products/list";
 	}
+
+	@RequestMapping(path="/editProduct", method=RequestMethod.GET) 
+	public String editProduct(Model model 
+	,@RequestParam("idProduct") Long idProduct
+	) {
+		
+		Optional<Product> result = productDao.findById(idProduct);
+		if(result.isPresent()) {
+			Product product = result.get();
+			model.addAttribute("product", product);
+			return "/products/product-form";
+		}
+		else {
+			return "/products/product-form";
+		}
+	}
+
 }
