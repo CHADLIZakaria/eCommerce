@@ -55,3 +55,38 @@ table img {
   width: 100px;
   height: 100px;
 }
+
+
+label.asterisk::after {
+  content: "*";
+  color: red;
+  position: absolute;
+  right: 0;
+  font-size: 20px;
+}
+
+.show-password:before {
+  color:#000;
+  content: '\f06e';
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 15%;
+  left: 79%;
+  pointer-events: all;
+}
+.show-password:before:hover {
+  color:#e29f9f
+}
+
+.message-error {
+  color: red;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}

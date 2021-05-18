@@ -48,7 +48,7 @@
 							<img th:src="@{'/uploads/'+${product.photo}}" />
 						</td>
 
-						<td class="text-center"><a class="btn btn-primary" th:href="@{/products/editProduct}">Edit
+						<td class="text-center"><a class="btn btn-primary" th:href="@{/products/editProduct(idProduct=${product.id})}">Edit
 								<i class="fas fa-edit"></i></a>
 							<a class="btn btn-danger" th:href="@{/products/deleteProduct}">Delete <i
 									class="far fa-trash-alt"></i></a>

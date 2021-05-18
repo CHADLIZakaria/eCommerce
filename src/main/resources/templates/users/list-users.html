@@ -27,7 +27,7 @@
 				</div>
 			</form>
 			<th:block th:if="${users.size}==0">
-				<div class=" my-2 alert alert-danger">No User found</div>
+				<div class="my-2 alert alert-danger">No User found</div>
 			</th:block>
 			<th:block th:if="${users.size}!=0">
 				<table class="table table-bordered mt-2">
@@ -48,12 +48,14 @@
 						<td th:text="${user.lastName}"></td>
 						<td th:text="${user.email}"></td>
 						<td>
-							<a class="btn btn-primary" href="">Edit <i class="fas fa-edit"></i></a>
+							<a class="btn btn-primary" th:href="@{/users/editUser(idUser=${user.id})}">Edit <i
+									class="fas fa-edit"></i></a>
 							<a class="btn btn-danger" href="">Delete <i class="far fa-trash-alt"></i></a>
 						</td>
 					</tr>
 				</table>
 			</th:block>
+			<a th:href="@{/users/add}" class="btn btn-primary">Add members</a>
 
 			<ul class="pagination justify-content-center">
 				<li class="page-item" th:each="page : ${myPages}"><a class="page-link"

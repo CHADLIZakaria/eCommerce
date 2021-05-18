@@ -32,7 +32,7 @@ public class User {
 	private String username;
 	private String firstName;
 	private String lastName;
-	@Size(min=5, message="password should have more then 4 caractere")
+	@Size(min=4, message="password should have more then 4 caractere")
 	private String password;
 	private String email;
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)

@@ -11,11 +11,12 @@
     <section layout:fragment="content">
         <div class="container">
 
-            <h2 class="text-center my-4">Add items</h2>
+            <h2 class="text-center my-4">Add Members</h2>
             <form enctype="multipart/form-data" th:action="@{/products/saveProduct}" method="POST"
                 modelAttribute="${product}">
                 <div class="form-group row">
-                    <label for="name" class="col-form-label col-sm-2">Name</label>
+                    <input type="hidden" th:field="*{product.id}"/>
+                    <label for="name" class="col-form-label col-sm-2 asterisk">Name</label>
                     <div class="col-sm-8">
                         <input type="text" name="name" id="name" class="form-control" th:field="*{product.name}">
                     </div>
